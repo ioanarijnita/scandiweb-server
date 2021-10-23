@@ -1,5 +1,3 @@
-require('vendor/autoload.php');
-
 <?php
 
 header('Access-Control-Allow-Origin: *');
