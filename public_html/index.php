@@ -272,6 +272,7 @@ $productList = new ProductsList;
     else {
         $sql = "SELECT MAX(idProduct) FROM products";
         $result = mysqli_query($conn, $sql);
-        echo $productList->addProductsToList($result);
+        echo $result;
+        // echo $productList->addProductsToList($result);
     }
 ?>
