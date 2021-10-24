@@ -106,7 +106,7 @@ class DVD extends Product{
             parent::insertsingle();
             $query = "UPDATE products SET size = (?) WHERE idProduct = (?)";
             $stmt = mysqli_prepare($this->conn, $query);
-            $stmt->bind_param("s", $size1, $max);
+            $stmt->bind_param("ss", $size1, $max);
             $rsint = $stmt->execute();
             return $rsint;
         }
