@@ -11,7 +11,7 @@ $username = "root";
 $password ="";
 $databaseName = "product";
 
-$conn = mysqli_connect("eu-cdbr-west-01.cleardb.com", "b516586a3f87f0", "8422784f", "products");
+$conn = mysqli_connect("eu-cdbr-west-01.cleardb.com", "b516586a3f87f0", "8422784f", "heroku_510a7e1eae0eabb");
 
 $data = json_decode(file_get_contents('php://input'), true);
 
