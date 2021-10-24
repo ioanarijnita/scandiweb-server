@@ -102,10 +102,11 @@ class DVD extends Product{
             return;
         }
         else {
+            $max = `SELECT MAX(idProduct) FROM products`;
             parent::insertsingle();
-            $query = "UPDATE products SET size = (?) WHERE idProduct = 65";
+            $query = "UPDATE products SET size = (?) WHERE idProduct = (?)";
             $stmt = mysqli_prepare($this->conn, $query);
-            $stmt->bind_param("s", $size1);
+            $stmt->bind_param("s", $size1, $max);
             $rsint = $stmt->execute();
             return $rsint;
         }
