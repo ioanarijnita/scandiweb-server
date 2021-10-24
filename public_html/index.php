@@ -103,7 +103,7 @@ class DVD extends Product{
         }
         else {
             parent::insertsingle();
-            $query = "UPDATE products SET size = (?) WHERE idProduct = (SELECT MAX(idProduct) FROM products)";
+            $query = "UPDATE products SET size = (?) WHERE idProduct = (SELECT * FROM (SELECT MAX(idProduct) FROM products) as max)";
             $stmt = mysqli_prepare($this->conn, $query);
             $stmt->bind_param("s", $size1);
             $rsint = $stmt->execute();
@@ -133,7 +133,7 @@ public function insertsingle(){
     } 
     else {
         parent:: insertsingle();
-        $query = "UPDATE products SET weight = (?) WHERE idProduct = (SELECT MAX(idProduct) FROM products)";
+        $query = "UPDATE products SET weight = (?) WHERE idProduct = (SELECT * FROM (SELECT MAX(idProduct) FROM products) as max)";
         $stmt = mysqli_prepare($this->conn, $query);
         $stmt->bind_param("s", $weight1);
         $rsint = $stmt->execute();
@@ -185,7 +185,7 @@ class Furniture extends Product{
         }
         else {
             parent:: insertsingle();
-            $query = "UPDATE products SET height = (?), width = (?), length = (?) WHERE idProduct = (SELECT MAX(idProduct) FROM products)";
+            $query = "UPDATE products SET height = (?), width = (?), length = (?) WHERE idProduct = (SELECT * FROM (SELECT MAX(idProduct) FROM products) as max)";
             $stmt = mysqli_prepare($this->conn, $query);
             $stmt->bind_param("sss", $height1, $width1, $length1);
             $rsint = $stmt->execute();
