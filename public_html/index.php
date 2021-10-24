@@ -98,7 +98,7 @@ class DVD extends Product{
 
     public function insertsingle(){
         $size1 = $this->getSize();
-        if (!isset($size1)) {
+        if ($this->size === NULL) {
             return;
         }
         else {
@@ -128,7 +128,7 @@ class Book extends Product {
 
 public function insertsingle(){
     $weight1 = $this->getWeight();
-    if (!isset($weight1)) {
+    if ($this->weight === NULL) {
         return;
     } 
     else {
@@ -180,7 +180,7 @@ class Furniture extends Product{
         $height1 = $this->getHeight();
         $width1 = $this->getWidth();
         $length1 = $this->getLength();
-        if (!isset($height1)) {
+        if ($this->height === NULL) {
             return;
         }
         else {
