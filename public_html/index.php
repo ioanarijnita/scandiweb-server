@@ -270,9 +270,8 @@ $productList = new ProductsList;
         $productList->deleteProduct();
     }
     else {
-        $sql = "SELECT MAX(idProduct) FROM products";
+        $sql = "SELECT * FROM products";
         $result = mysqli_query($conn, $sql);
-        echo $result;
-        // echo $productList->addProductsToList($result);
+        echo $productList->addProductsToList($result);
     }
 ?>
